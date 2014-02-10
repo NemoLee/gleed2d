@@ -1,4 +1,5 @@
 This gleed2d project copy from http://gleed2d.codeplex.com/ authored by zissakos
+I just want to improve the functionality of this editor and maybe try to add some new feature
 
 Project Description
 
