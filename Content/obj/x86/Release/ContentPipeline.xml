@@ -6,10 +6,10 @@
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Release</BuildConfiguration>
       <CompressContent>true</CompressContent>
-      <RootDirectory>C:\Users\Zephyr\Documents\Visual Studio 2008\Projects\gleed2d\gleed2d\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Zephyr\Documents\Visual Studio 2008\Projects\gleed2d\gleed2d\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Zephyr\Documents\Visual Studio 2008\Projects\gleed2d\gleed2d\Content\obj\x86\Release\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Zephyr\Documents\Visual Studio 2008\Projects\gleed2d\gleed2d\bin\x86\Release\Content\</OutputDirectory>
+      <RootDirectory>C:\Cocos2d-x\cocos2d-x-3.0alpha1\projects\gleed2d\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Cocos2d-x\cocos2d-x-3.0alpha1\projects\gleed2d\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Cocos2d-x\cocos2d-x-3.0alpha1\projects\gleed2d\Content\obj\x86\Release\</IntermediateDirectory>
+      <OutputDirectory>C:\Cocos2d-x\cocos2d-x-3.0alpha1\projects\gleed2d\bin\x86\Release\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

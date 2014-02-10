@@ -66,7 +66,7 @@ namespace GLEED2D
         bool drawSnappedPoint = false;
         Vector2 posSnappedPoint = Vector2.Zero;
         public string Version;
-
+        bool isLevelSelected=false;
 
         public Editor()
         {
@@ -124,6 +124,7 @@ namespace GLEED2D
         public void selectlevel()
         {
             MainForm.Instance.propertyGrid1.SelectedObject = level;
+            isLevelSelected = true;
         }
 
         public void addLayer(Layer l)
@@ -164,6 +165,7 @@ namespace GLEED2D
 
         public void selectlayer(Layer l)
         {
+            isLevelSelected = false;
             if (SelectedItems.Count > 0) selectitem(null);
             SelectedLayer = l;
             updatetreeviewselection();
@@ -230,6 +232,7 @@ namespace GLEED2D
 
         public void selectitem(Item i)
         {
+            isLevelSelected = false;
             SelectedItems.Clear();
             if (i != null)
             {
@@ -246,12 +249,26 @@ namespace GLEED2D
 
         public void selectAll()
         {
-            if (SelectedLayer == null) return;
-            //if (SelectedLayer.Items.Count == 0) return;
-            SelectedItems.Clear();
-            foreach (Item i in SelectedLayer.Items)
+            if (isLevelSelected)
             {
-                SelectedItems.Add(i);
+                SelectedItems.Clear();
+                foreach (Layer l in level.Layers)
+                {
+                    foreach (Item i in l.Items)
+                    {
+                        SelectedItems.Add(i);
+                    }
+                }
+            }
+            else
+            {
+                if (SelectedLayer == null) return;
+                //if (SelectedLayer.Items.Count == 0) return;
+                SelectedItems.Clear();
+                foreach (Item i in SelectedLayer.Items)
+                {
+                    SelectedItems.Add(i);
+                }
             }
             updatetreeviewselection();
         }

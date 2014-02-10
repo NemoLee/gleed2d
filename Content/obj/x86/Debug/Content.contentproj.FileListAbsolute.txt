@@ -1,1 +1,2 @@
 C:\Users\Zephyr\Documents\Visual Studio 2008\Projects\gleed2d\gleed2d\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Cocos2d-x\cocos2d-x-3.0alpha1\projects\gleed2d\Content\obj\x86\Debug\ResolveAssemblyReference.cache
