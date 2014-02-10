@@ -133,6 +133,7 @@ scale**
 copy
 flip horizontally
 flip vertically
+pop up item Menu
 
 SELECTION
 select item
@@ -155,7 +156,7 @@ RightMouseButton
 LeftControl + move item
 
 
-
+LeftShift + right click on selected item
 
 click on item
 LeftShift + click on item

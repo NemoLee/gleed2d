@@ -4,6 +4,7 @@ using System.Xml.Serialization;
 using CustomUITypeEditors;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using Forms = System.Windows.Forms;
 using System.Windows.Forms;
 
@@ -88,6 +89,12 @@ namespace GLEED2D
 
         public virtual void onMouseButtonDown(Vector2 mouseworldpos)
         {
+            if (Editor.Instance.SelectedItems.Contains(this)&&
+                Mouse.GetState().RightButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed 
+                && this.contains(mouseworldpos) && this.Visible)
+            {
+                MainForm.Instance.ItemContextMenu.Show(Control.MousePosition);
+            }
         }
 
         public virtual void onMouseButtonUp(Vector2 mouseworldpos)

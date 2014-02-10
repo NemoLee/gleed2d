@@ -883,7 +883,11 @@ namespace GLEED2D
 
                 {
                     if (item != null) item.onMouseOut();
-                    if (SelectedItems.Count > 0)
+                    if (kstate.IsKeyDown(Keys.LeftShift) && item != null)
+                    {
+                        item.onMouseButtonDown(mouseworldpos);
+                    }
+                    else if (SelectedItems.Count > 0)
                     {
                         grabbedpoint = mouseworldpos - SelectedItems[0].pPosition;
 
