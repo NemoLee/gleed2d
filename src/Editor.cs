@@ -49,6 +49,7 @@ namespace GLEED2D
         }
         Item lastitem;
         public List<Item> SelectedItems;
+        public List<Item> [] ItemGroups;
         Rectangle selectionrectangle = new Rectangle();
         Vector2 mouseworldpos, grabbedpoint, initialcampos, newPosition;       
         List<Vector2> initialpos;                   //position before user interaction
@@ -76,6 +77,11 @@ namespace GLEED2D
             state = EditorState.idle;
 
             SelectedItems = new List<Item>();
+            ItemGroups = new List<Item>[10];
+            for (int i = 0; i < 10; i++)
+            {
+                ItemGroups[i] = new List<Item>();
+            }
             initialpos = new List<Vector2>();
             initialrot = new List<float>();
             initialscale = new List<Vector2>();
@@ -198,6 +204,13 @@ namespace GLEED2D
                         }
 
                 selitem.layer.Items.Remove(selitem);
+                foreach(List<Item> itemGroup in ItemGroups)
+                {
+                    if (itemGroup.Contains(selitem))
+                    {
+                        itemGroup.Remove(selitem);
+                    }
+                }
             }
             endCommand();
             selectitem(null);
@@ -246,11 +259,56 @@ namespace GLEED2D
                 selectlayer(SelectedLayer);
             }
         }
-
+        public void addSelectedItemsToGroup(int groupIndex)
+        {
+            beginCommand("Add Selected Item(s) to Group \""+groupIndex+"\"");
+            foreach (Item item in SelectedItems)
+            {
+                if (ItemGroups[groupIndex].Contains(item) == false)
+                {
+                    ItemGroups[groupIndex].Add(item);
+                }
+            }
+            endCommand();
+            updatetreeviewselection();
+        }
+        public void deleteSelectedItemsFromGroup(int groupIndex)
+        {
+            beginCommand("Delete Selected Item(s) from Group \"" + groupIndex + "\"");
+            foreach (Item item in SelectedItems)
+            {
+                 ItemGroups[groupIndex].Remove(item);
+            }
+            endCommand();
+            updatetreeviewselection();
+        }
+        public void setSelectedItemsAsGroup(int groupIndex)
+        {
+            beginCommand("Set Selected Item(s) as Group \"" + groupIndex + "\"");
+            ItemGroups[groupIndex].Clear();
+            foreach (Item item in SelectedItems)
+            {
+                ItemGroups[groupIndex].Add(item);
+            }
+            endCommand();
+            updatetreeviewselection();
+        }
+        public void selectGroup(int groupIndex)
+        {
+            beginCommand("Select Group \"" + groupIndex + "\"");
+            SelectedItems.Clear();
+            foreach (Item item in ItemGroups[groupIndex])
+            {
+                SelectedItems.Add(item);
+            }
+            endCommand();
+            updatetreeviewselection();
+        }
         public void selectAll()
         {
             if (isLevelSelected)
             {
+                beginCommand("Select All Item(s) of level");
                 SelectedItems.Clear();
                 foreach (Layer l in level.Layers)
                 {
@@ -259,9 +317,11 @@ namespace GLEED2D
                         SelectedItems.Add(i);
                     }
                 }
+                endCommand();
             }
             else
             {
+                beginCommand("Select All Item(s) of layer \"" +this.selectedlayer.Name + "\"");
                 if (SelectedLayer == null) return;
                 //if (SelectedLayer.Items.Count == 0) return;
                 SelectedItems.Clear();
@@ -269,7 +329,9 @@ namespace GLEED2D
                 {
                     SelectedItems.Add(i);
                 }
+                endCommand();
             }
+
             updatetreeviewselection();
         }
 
@@ -788,7 +850,7 @@ namespace GLEED2D
 
                 //LEFT MOUSE BUTTON CLICK
                 if ((mstate.LeftButton == ButtonState.Pressed && oldmstate.LeftButton == ButtonState.Released) ||
-                    (kstate.IsKeyDown(Keys.D1) && oldkstate.IsKeyUp(Keys.D1)))
+                    (kstate.IsKeyDown(Keys.M) && oldkstate.IsKeyUp(Keys.M)))
                 {
                     if (item != null) item.onMouseButtonDown(mouseworldpos);
                     if (kstate.IsKeyDown(Keys.LeftControl) && item != null)
@@ -843,7 +905,7 @@ namespace GLEED2D
 
                 //MIDDLE MOUSE BUTTON CLICK
                 if ((mstate.MiddleButton == ButtonState.Pressed && oldmstate.MiddleButton == ButtonState.Released) ||
-                    (kstate.IsKeyDown(Keys.D2) && oldkstate.IsKeyUp(Keys.D2)))
+                    (kstate.IsKeyDown(Keys.R) && oldkstate.IsKeyUp(Keys.R)))
                 {
                     if (item != null) item.onMouseOut();
                     if (kstate.IsKeyDown(Keys.LeftControl))
@@ -879,7 +941,7 @@ namespace GLEED2D
 
                 //RIGHT MOUSE BUTTON CLICK
                 if ((mstate.RightButton == ButtonState.Pressed && oldmstate.RightButton == ButtonState.Released) ||
-                    (kstate.IsKeyDown(Keys.D3) && oldkstate.IsKeyUp(Keys.D3)))
+                    (kstate.IsKeyDown(Keys.E) && oldkstate.IsKeyUp(Keys.E)))
 
                 {
                     if (item != null) item.onMouseOut();
@@ -951,7 +1013,7 @@ namespace GLEED2D
                 }
                 MainForm.Instance.propertyGrid1.Refresh();
                 if ((mstate.LeftButton == ButtonState.Released && oldmstate.LeftButton == ButtonState.Pressed) ||
-                    (kstate.IsKeyUp(Keys.D1) && oldkstate.IsKeyDown(Keys.D1)))
+                    (kstate.IsKeyUp(Keys.M) && oldkstate.IsKeyDown(Keys.M)))
                 {
 
                     foreach (Item selitem in SelectedItems) selitem.onMouseButtonUp(mouseworldpos);
@@ -981,7 +1043,7 @@ namespace GLEED2D
                 }
                 MainForm.Instance.propertyGrid1.Refresh();
                 if ((mstate.MiddleButton == ButtonState.Released && oldmstate.MiddleButton == ButtonState.Pressed) ||
-                    (kstate.IsKeyUp(Keys.D2) && oldkstate.IsKeyDown(Keys.D2)))
+                    (kstate.IsKeyUp(Keys.R) && oldkstate.IsKeyDown(Keys.R)))
                 {
                     state = EditorState.idle;
                     MainForm.Instance.pictureBox1.Cursor = Forms.Cursors.Default;
@@ -1020,7 +1082,7 @@ namespace GLEED2D
                 }
                 MainForm.Instance.propertyGrid1.Refresh();
                 if ((mstate.RightButton == ButtonState.Released && oldmstate.RightButton == ButtonState.Pressed) ||
-                    (kstate.IsKeyUp(Keys.D3) && oldkstate.IsKeyDown(Keys.D3)))
+                    (kstate.IsKeyUp(Keys.E) && oldkstate.IsKeyDown(Keys.E)))
                 {
                     state = EditorState.idle;
                     MainForm.Instance.pictureBox1.Cursor = Forms.Cursors.Default;
@@ -1087,7 +1149,7 @@ namespace GLEED2D
                     mouseworldpos = clickedPoints[0] + new Vector2(squareside, squareside);
                 }
                 if ((mstate.LeftButton == ButtonState.Pressed && oldmstate.LeftButton == ButtonState.Released) ||
-                    (kstate.IsKeyDown(Keys.D1) && oldkstate.IsKeyUp(Keys.D1)))
+                    (kstate.IsKeyDown(Keys.M) && oldkstate.IsKeyUp(Keys.M)))
                 {
                     clickedPoints.Add(mouseworldpos);
                     if (primitivestarted == false)
@@ -1125,7 +1187,7 @@ namespace GLEED2D
                 }
 
                 if ((mstate.MiddleButton == ButtonState.Pressed && oldmstate.MiddleButton == ButtonState.Released) ||
-                    (kstate.IsKeyDown(Keys.D2) && oldkstate.IsKeyUp(Keys.D2)))
+                    (kstate.IsKeyDown(Keys.R) && oldkstate.IsKeyUp(Keys.R)))
                 {
                     if (currentprimitive == PrimitiveType.Path && primitivestarted)
                     {
@@ -1136,7 +1198,7 @@ namespace GLEED2D
                     }
                 }
                 if ((mstate.RightButton == ButtonState.Pressed && oldmstate.RightButton == ButtonState.Released) ||
-                    (kstate.IsKeyDown(Keys.D3) && oldkstate.IsKeyUp(Keys.D3)))
+                    (kstate.IsKeyDown(Keys.E) && oldkstate.IsKeyUp(Keys.E)))
                 {
                     if (primitivestarted)
                     {

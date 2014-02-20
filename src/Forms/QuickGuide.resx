@@ -138,7 +138,11 @@ pop up item Menu
 SELECTION
 select item
 add item to selection
-select multiple items</value>
+select multiple items
+add selected to group i
+set selected as group i
+deleted selected from group i
+select group i</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>MOUSE
@@ -158,8 +162,13 @@ LeftControl + move item
 
 LeftShift + right click on selected item
 
+
 click on item
 LeftShift + click on item
-LeftClick + Drag (Windows style)</value>
+LeftClick + Drag (Windows style)
+LeftShift + Num 0~9
+LeftControl + Num 0~9
+LeftAlt + Num 0~9
+Num 0~9</value>
   </data>
 </root>

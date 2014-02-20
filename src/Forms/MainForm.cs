@@ -983,10 +983,35 @@ namespace GLEED2D
             Constants.Instance.SnapToGrid = SnapToGridButton.Checked = ViewSnapToGrid.Checked;
         }
 
+        private void MainForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           
+        }
 
-
-
-
-
+        private void MainForm_KeyUp(object sender, KeyEventArgs e)
+        {
+            char keyChar = (char)e.KeyValue;
+            string strKey = "" + keyChar;
+            if (keyChar <= '9' && keyChar >= '0')
+            {
+                int groupIndex = int.Parse(strKey);
+                if (e.Control && (e.Shift == false)&&(e.Alt==false))
+                {
+                    Editor.Instance.setSelectedItemsAsGroup(groupIndex);
+                }
+                else if (e.Shift && (e.Control == false) && (e.Alt == false))
+                {
+                    Editor.Instance.addSelectedItemsToGroup(groupIndex);
+                }
+                else if (e.Alt && (e.Control == false) && (e.Shift == false))
+                {
+                    Editor.Instance.deleteSelectedItemsFromGroup(groupIndex);
+                }
+                else if (e.Shift == false && e.Control == false && (e.Alt == false))
+                {
+                    Editor.Instance.selectGroup(groupIndex);
+                }
+            }
+        }
     }
 }
