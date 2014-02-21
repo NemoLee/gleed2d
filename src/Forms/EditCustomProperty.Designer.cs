@@ -29,17 +29,15 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.buttonOK = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.rdbFreeText = new System.Windows.Forms.RadioButton();
+            this.rdbBoolean = new System.Windows.Forms.RadioButton();
+            this.rdbVector2 = new System.Windows.Forms.RadioButton();
+            this.rdbColor = new System.Windows.Forms.RadioButton();
+            this.rdbItem = new System.Windows.Forms.RadioButton();
             this.txbFreetext = new System.Windows.Forms.TextBox();
             this.cbbBoolean = new System.Windows.Forms.ComboBox();
             this.txbX = new System.Windows.Forms.TextBox();
@@ -54,8 +52,12 @@
             this.numUDB = new System.Windows.Forms.NumericUpDown();
             this.numUDG = new System.Windows.Forms.NumericUpDown();
             this.numUDR = new System.Windows.Forms.NumericUpDown();
-            this.cbxAddToAllSelected = new System.Windows.Forms.CheckBox();
+            this.cbxToAllSelected = new System.Windows.Forms.CheckBox();
             this.cbxAddMode = new System.Windows.Forms.CheckBox();
+            this.cbbName = new System.Windows.Forms.ComboBox();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.buttonOK = new System.Windows.Forms.Button();
+            this.cbxDeleteWithoutConfirm = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numUDB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDR)).BeginInit();
@@ -70,35 +72,17 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Name";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(96, 9);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(225, 21);
-            this.textBox1.TabIndex = 1;
-            // 
             // buttonCancel
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(249, 218);
+            this.buttonCancel.Location = new System.Drawing.Point(306, 274);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 21);
             this.buttonCancel.TabIndex = 9;
-            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.Text = "Finish";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
-            // 
-            // buttonOK
-            // 
-            this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOK.Location = new System.Drawing.Point(168, 218);
-            this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(75, 21);
-            this.buttonOK.TabIndex = 8;
-            this.buttonOK.Text = "OK";
-            this.buttonOK.UseVisualStyleBackColor = true;
-            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
             // label2
             // 
@@ -126,58 +110,59 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Type";
             // 
-            // radioButton1
+            // rdbFreeText
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(47, 103);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(77, 16);
-            this.radioButton1.TabIndex = 3;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Free text";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.rdbFreeText.AutoSize = true;
+            this.rdbFreeText.Checked = true;
+            this.rdbFreeText.Location = new System.Drawing.Point(47, 103);
+            this.rdbFreeText.Name = "rdbFreeText";
+            this.rdbFreeText.Size = new System.Drawing.Size(77, 16);
+            this.rdbFreeText.TabIndex = 3;
+            this.rdbFreeText.TabStop = true;
+            this.rdbFreeText.Text = "Free text";
+            this.rdbFreeText.UseVisualStyleBackColor = true;
+            this.rdbFreeText.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
-            // radioButton2
+            // rdbBoolean
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(47, 125);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(65, 16);
-            this.radioButton2.TabIndex = 4;
-            this.radioButton2.Text = "Boolean";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdbBoolean.AutoSize = true;
+            this.rdbBoolean.Location = new System.Drawing.Point(47, 125);
+            this.rdbBoolean.Name = "rdbBoolean";
+            this.rdbBoolean.Size = new System.Drawing.Size(65, 16);
+            this.rdbBoolean.TabIndex = 4;
+            this.rdbBoolean.Text = "Boolean";
+            this.rdbBoolean.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // rdbVector2
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(47, 146);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(65, 16);
-            this.radioButton3.TabIndex = 5;
-            this.radioButton3.Text = "Vector2";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rdbVector2.AutoSize = true;
+            this.rdbVector2.Location = new System.Drawing.Point(47, 146);
+            this.rdbVector2.Name = "rdbVector2";
+            this.rdbVector2.Size = new System.Drawing.Size(65, 16);
+            this.rdbVector2.TabIndex = 5;
+            this.rdbVector2.Text = "Vector2";
+            this.rdbVector2.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // rdbColor
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(47, 167);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(53, 16);
-            this.radioButton4.TabIndex = 6;
-            this.radioButton4.Text = "Color";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.rdbColor.AutoSize = true;
+            this.rdbColor.Location = new System.Drawing.Point(47, 167);
+            this.rdbColor.Name = "rdbColor";
+            this.rdbColor.Size = new System.Drawing.Size(53, 16);
+            this.rdbColor.TabIndex = 6;
+            this.rdbColor.Text = "Color";
+            this.rdbColor.UseVisualStyleBackColor = true;
+            this.rdbColor.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
             // 
-            // radioButton5
+            // rdbItem
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(47, 188);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(47, 16);
-            this.radioButton5.TabIndex = 7;
-            this.radioButton5.Text = "Item";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.rdbItem.AutoSize = true;
+            this.rdbItem.Location = new System.Drawing.Point(47, 188);
+            this.rdbItem.Name = "rdbItem";
+            this.rdbItem.Size = new System.Drawing.Size(47, 16);
+            this.rdbItem.TabIndex = 7;
+            this.rdbItem.Text = "Item";
+            this.rdbItem.UseVisualStyleBackColor = true;
             // 
             // txbFreetext
             // 
@@ -261,7 +246,7 @@
             // 
             // btnColor
             // 
-            this.btnColor.Location = new System.Drawing.Point(297, 165);
+            this.btnColor.Location = new System.Drawing.Point(297, 166);
             this.btnColor.Name = "btnColor";
             this.btnColor.Size = new System.Drawing.Size(27, 23);
             this.btnColor.TabIndex = 22;
@@ -320,16 +305,16 @@
             0});
             this.numUDR.ValueChanged += new System.EventHandler(this.numUD_ValueChanged);
             // 
-            // cbxAddToAllSelected
+            // cbxToAllSelected
             // 
-            this.cbxAddToAllSelected.AutoSize = true;
-            this.cbxAddToAllSelected.Location = new System.Drawing.Point(13, 209);
-            this.cbxAddToAllSelected.Name = "cbxAddToAllSelected";
-            this.cbxAddToAllSelected.Size = new System.Drawing.Size(138, 16);
-            this.cbxAddToAllSelected.TabIndex = 26;
-            this.cbxAddToAllSelected.Text = "add to all selected";
-            this.cbxAddToAllSelected.UseVisualStyleBackColor = true;
-            this.cbxAddToAllSelected.CheckedChanged += new System.EventHandler(this.cbxAddToAllSelected_CheckedChanged);
+            this.cbxToAllSelected.AutoSize = true;
+            this.cbxToAllSelected.Location = new System.Drawing.Point(13, 209);
+            this.cbxToAllSelected.Name = "cbxToAllSelected";
+            this.cbxToAllSelected.Size = new System.Drawing.Size(114, 16);
+            this.cbxToAllSelected.TabIndex = 26;
+            this.cbxToAllSelected.Text = "To all selected";
+            this.cbxToAllSelected.UseVisualStyleBackColor = true;
+            this.cbxToAllSelected.CheckedChanged += new System.EventHandler(this.cbxAddToAllSelected_CheckedChanged);
             // 
             // cbxAddMode
             // 
@@ -342,16 +327,62 @@
             this.cbxAddMode.Text = "overwrite conflict";
             this.cbxAddMode.UseVisualStyleBackColor = true;
             // 
+            // cbbName
+            // 
+            this.cbbName.FormattingEnabled = true;
+            this.cbbName.Location = new System.Drawing.Point(96, 7);
+            this.cbbName.Name = "cbbName";
+            this.cbbName.Size = new System.Drawing.Size(225, 20);
+            this.cbbName.TabIndex = 28;
+            this.cbbName.SelectedIndexChanged += new System.EventHandler(this.cbbName_SelectedIndexChanged);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelete.Location = new System.Drawing.Point(327, 7);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(58, 21);
+            this.btnDelete.TabIndex = 29;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // buttonOK
+            // 
+            this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonOK.Location = new System.Drawing.Point(226, 274);
+            this.buttonOK.Name = "buttonOK";
+            this.buttonOK.Size = new System.Drawing.Size(75, 21);
+            this.buttonOK.TabIndex = 8;
+            this.buttonOK.Text = "Set";
+            this.buttonOK.UseVisualStyleBackColor = true;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
+            // 
+            // cbxDeleteWithoutConfirm
+            // 
+            this.cbxDeleteWithoutConfirm.AutoSize = true;
+            this.cbxDeleteWithoutConfirm.Checked = true;
+            this.cbxDeleteWithoutConfirm.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbxDeleteWithoutConfirm.Location = new System.Drawing.Point(13, 254);
+            this.cbxDeleteWithoutConfirm.Name = "cbxDeleteWithoutConfirm";
+            this.cbxDeleteWithoutConfirm.Size = new System.Drawing.Size(156, 16);
+            this.cbxDeleteWithoutConfirm.TabIndex = 30;
+            this.cbxDeleteWithoutConfirm.Text = "delete without confirm";
+            this.cbxDeleteWithoutConfirm.UseVisualStyleBackColor = true;
+            // 
             // AddCustomProperty
             // 
             this.AcceptButton = this.buttonOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(336, 250);
+            this.ClientSize = new System.Drawing.Size(393, 306);
             this.ControlBox = false;
+            this.Controls.Add(this.cbxDeleteWithoutConfirm);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.cbbName);
             this.Controls.Add(this.cbxAddMode);
-            this.Controls.Add(this.cbxAddToAllSelected);
+            this.Controls.Add(this.cbxToAllSelected);
             this.Controls.Add(this.numUDR);
             this.Controls.Add(this.numUDG);
             this.Controls.Add(this.numUDB);
@@ -365,23 +396,22 @@
             this.Controls.Add(this.txbX);
             this.Controls.Add(this.cbbBoolean);
             this.Controls.Add(this.txbFreetext);
-            this.Controls.Add(this.radioButton5);
-            this.Controls.Add(this.radioButton4);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.rdbItem);
+            this.Controls.Add(this.rdbColor);
+            this.Controls.Add(this.rdbVector2);
+            this.Controls.Add(this.rdbBoolean);
+            this.Controls.Add(this.rdbFreeText);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.buttonCancel);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AddCustomProperty";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add Custom Property";
+            this.Text = "Edit Custom Property";
             this.Load += new System.EventHandler(this.AddCustomProperty_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numUDB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDG)).EndInit();
@@ -394,17 +424,15 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton rdbFreeText;
+        private System.Windows.Forms.RadioButton rdbBoolean;
+        private System.Windows.Forms.RadioButton rdbVector2;
+        private System.Windows.Forms.RadioButton rdbColor;
+        private System.Windows.Forms.RadioButton rdbItem;
         private System.Windows.Forms.TextBox txbFreetext;
         private System.Windows.Forms.ComboBox cbbBoolean;
         private System.Windows.Forms.TextBox txbX;
@@ -419,7 +447,11 @@
         private System.Windows.Forms.NumericUpDown numUDB;
         private System.Windows.Forms.NumericUpDown numUDG;
         private System.Windows.Forms.NumericUpDown numUDR;
-        private System.Windows.Forms.CheckBox cbxAddToAllSelected;
+        private System.Windows.Forms.CheckBox cbxToAllSelected;
         private System.Windows.Forms.CheckBox cbxAddMode;
+        private System.Windows.Forms.ComboBox cbbName;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button buttonOK;
+        private System.Windows.Forms.CheckBox cbxDeleteWithoutConfirm;
     }
 }

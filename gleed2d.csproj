@@ -134,11 +134,11 @@
     <Compile Include="src\Items\PathItem.Editable.cs" />
     <Compile Include="src\Items\RectangleItem.Editable.cs" />
     <Compile Include="src\Items\TextureItem.Editable.cs" />
-    <Compile Include="src\Forms\AddCustomProperty.cs">
+    <Compile Include="src\Forms\EditCustomProperty.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\Forms\AddCustomProperty.Designer.cs">
-      <DependentUpon>AddCustomProperty.cs</DependentUpon>
+    <Compile Include="src\Forms\EditCustomProperty.Designer.cs">
+      <DependentUpon>EditCustomProperty.cs</DependentUpon>
     </Compile>
     <Compile Include="src\Item.ICustomTypeDescriptor.cs" />
     <Compile Include="src\Level.IUndoable.cs" />
@@ -252,8 +252,8 @@
       <DependentUpon>About.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\Forms\AddCustomProperty.resx">
-      <DependentUpon>AddCustomProperty.cs</DependentUpon>
+    <EmbeddedResource Include="src\Forms\EditCustomProperty.resx">
+      <DependentUpon>EditCustomProperty.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\AddLayer.resx">

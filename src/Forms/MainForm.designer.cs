@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Rectangle", 0);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Circle", 1);
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Path", 2);
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("Rectangle", 0);
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("Circle", 1);
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("Path", 2);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -913,7 +913,7 @@
             this.toolStripSeparator18,
             this.toolStripMenuItem1});
             this.LayerContextMenu.Name = "LayerContextMenu";
-            this.LayerContextMenu.Size = new System.Drawing.Size(203, 154);
+            this.LayerContextMenu.Size = new System.Drawing.Size(201, 176);
             // 
             // duplicateToolStripMenuItem
             // 
@@ -975,8 +975,8 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(202, 22);
-            this.toolStripMenuItem1.Text = "Add Custom Property";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(200, 22);
+            this.toolStripMenuItem1.Text = "Edit Custom Property";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.ActionAddCustomProperty);
             // 
             // splitContainer1
@@ -1164,7 +1164,7 @@
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
             this.listView1.ShowItemToolTips = true;
-            this.listView1.Size = new System.Drawing.Size(740, 133);
+            this.listView1.Size = new System.Drawing.Size(744, 133);
             this.listView1.TabIndex = 6;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseDoubleClick);
@@ -1183,7 +1183,7 @@
             // chooseFolder
             // 
             this.chooseFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chooseFolder.Location = new System.Drawing.Point(537, 6);
+            this.chooseFolder.Location = new System.Drawing.Point(541, 6);
             this.chooseFolder.Name = "chooseFolder";
             this.chooseFolder.Size = new System.Drawing.Size(60, 21);
             this.chooseFolder.TabIndex = 5;
@@ -1195,7 +1195,7 @@
             // 
             this.buttonFolderUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonFolderUp.Image = ((System.Drawing.Image)(resources.GetObject("buttonFolderUp.Image")));
-            this.buttonFolderUp.Location = new System.Drawing.Point(499, 6);
+            this.buttonFolderUp.Location = new System.Drawing.Point(503, 6);
             this.buttonFolderUp.Name = "buttonFolderUp";
             this.buttonFolderUp.Size = new System.Drawing.Size(32, 21);
             this.buttonFolderUp.TabIndex = 4;
@@ -1206,7 +1206,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(645, 10);
+            this.label2.Location = new System.Drawing.Point(649, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 12);
             this.label2.TabIndex = 3;
@@ -1217,7 +1217,7 @@
             this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(675, 7);
+            this.comboBox1.Location = new System.Drawing.Point(679, 7);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(74, 20);
             this.comboBox1.TabIndex = 2;
@@ -1230,7 +1230,7 @@
             this.textBox1.Location = new System.Drawing.Point(51, 7);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(442, 21);
+            this.textBox1.Size = new System.Drawing.Size(446, 21);
             this.textBox1.TabIndex = 1;
             // 
             // label1
@@ -1257,15 +1257,15 @@
             // 
             this.listView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView2.HideSelection = false;
-            listViewItem1.ToolTipText = "A simple rectangle defined by position, width and height. Rectangle Primitives ca" +
+            listViewItem4.ToolTipText = "A simple rectangle defined by position, width and height. Rectangle Primitives ca" +
                 "n be scaled but not rotated.";
-            listViewItem2.ToolTipText = "A simple circle defined by position and radius. Circle Primitives can be scaled b" +
+            listViewItem5.ToolTipText = "A simple circle defined by position and radius. Circle Primitives can be scaled b" +
                 "ut not rotated.";
-            listViewItem3.ToolTipText = "A Path is an array of Vector2. Path Primitives can be rotated and scaled.";
+            listViewItem6.ToolTipText = "A Path is an array of Vector2. Path Primitives can be rotated and scaled.";
             this.listView2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3});
+            listViewItem4,
+            listViewItem5,
+            listViewItem6});
             this.listView2.LargeImageList = this.imageList1;
             this.listView2.Location = new System.Drawing.Point(3, 3);
             this.listView2.MultiSelect = false;
