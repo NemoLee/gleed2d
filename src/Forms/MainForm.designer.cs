@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("Rectangle", 0);
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("Circle", 1);
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("Path", 2);
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Rectangle", 0);
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Circle", 1);
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Path", 2);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -106,6 +106,8 @@
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator19 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.LayerContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.duplicateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
@@ -329,26 +331,26 @@
             this.toolStripSeparator10,
             this.addCustomPropertyToolStripMenuItem});
             this.ItemContextMenu.Name = "ItemContextMenu";
-            this.ItemContextMenu.Size = new System.Drawing.Size(203, 154);
+            this.ItemContextMenu.Size = new System.Drawing.Size(201, 154);
             // 
             // ItemCenterViewEntry
             // 
             this.ItemCenterViewEntry.Name = "ItemCenterViewEntry";
             this.ItemCenterViewEntry.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.ItemCenterViewEntry.Size = new System.Drawing.Size(202, 22);
+            this.ItemCenterViewEntry.Size = new System.Drawing.Size(200, 22);
             this.ItemCenterViewEntry.Text = "Center View";
             this.ItemCenterViewEntry.Click += new System.EventHandler(this.ActionCenterView);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(199, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(197, 6);
             // 
             // renameToolStripMenuItem1
             // 
             this.renameToolStripMenuItem1.Name = "renameToolStripMenuItem1";
             this.renameToolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.renameToolStripMenuItem1.Size = new System.Drawing.Size(202, 22);
+            this.renameToolStripMenuItem1.Size = new System.Drawing.Size(200, 22);
             this.renameToolStripMenuItem1.Text = "Rename";
             this.renameToolStripMenuItem1.Click += new System.EventHandler(this.ActionRename);
             // 
@@ -356,21 +358,21 @@
             // 
             this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
             this.deleteToolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(202, 22);
+            this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(200, 22);
             this.deleteToolStripMenuItem1.Text = "Delete";
             this.deleteToolStripMenuItem1.Click += new System.EventHandler(this.ActionDelete);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(199, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(197, 6);
             // 
             // moveUpToolStripMenuItem1
             // 
             this.moveUpToolStripMenuItem1.Name = "moveUpToolStripMenuItem1";
             this.moveUpToolStripMenuItem1.ShortcutKeyDisplayString = "";
             this.moveUpToolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F7;
-            this.moveUpToolStripMenuItem1.Size = new System.Drawing.Size(202, 22);
+            this.moveUpToolStripMenuItem1.Size = new System.Drawing.Size(200, 22);
             this.moveUpToolStripMenuItem1.Text = "Move Up";
             this.moveUpToolStripMenuItem1.Click += new System.EventHandler(this.ActionMoveUp);
             // 
@@ -378,20 +380,20 @@
             // 
             this.moveDownToolStripMenuItem1.Name = "moveDownToolStripMenuItem1";
             this.moveDownToolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F8;
-            this.moveDownToolStripMenuItem1.Size = new System.Drawing.Size(202, 22);
+            this.moveDownToolStripMenuItem1.Size = new System.Drawing.Size(200, 22);
             this.moveDownToolStripMenuItem1.Text = "Move Down";
             this.moveDownToolStripMenuItem1.Click += new System.EventHandler(this.ActionMoveDown);
             // 
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(199, 6);
+            this.toolStripSeparator10.Size = new System.Drawing.Size(197, 6);
             // 
             // addCustomPropertyToolStripMenuItem
             // 
             this.addCustomPropertyToolStripMenuItem.Name = "addCustomPropertyToolStripMenuItem";
-            this.addCustomPropertyToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.addCustomPropertyToolStripMenuItem.Text = "Add Custom Property";
+            this.addCustomPropertyToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.addCustomPropertyToolStripMenuItem.Text = "Edit Custom Property";
             this.addCustomPropertyToolStripMenuItem.Click += new System.EventHandler(this.ActionAddCustomProperty);
             // 
             // menuStrip1
@@ -739,7 +741,9 @@
             this.toolStripSeparator12,
             this.toolStripButton2,
             this.toolStripSeparator14,
-            this.toolStripButton3});
+            this.toolStripButton3,
+            this.toolStripSeparator19,
+            this.toolStripButton4});
             this.toolStrip1.Location = new System.Drawing.Point(0, 25);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -900,6 +904,21 @@
             this.toolStripButton3.Text = "Settings";
             this.toolStripButton3.Click += new System.EventHandler(this.ToolsSettings);
             // 
+            // toolStripSeparator19
+            // 
+            this.toolStripSeparator19.Name = "toolStripSeparator19";
+            this.toolStripSeparator19.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton4.Text = "Open Custom Property Group Editor";
+            this.toolStripButton4.Click += new System.EventHandler(this.OpenCustomPropertyGroupEditor);
+            // 
             // LayerContextMenu
             // 
             this.LayerContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -913,27 +932,27 @@
             this.toolStripSeparator18,
             this.toolStripMenuItem1});
             this.LayerContextMenu.Name = "LayerContextMenu";
-            this.LayerContextMenu.Size = new System.Drawing.Size(201, 176);
+            this.LayerContextMenu.Size = new System.Drawing.Size(201, 154);
             // 
             // duplicateToolStripMenuItem
             // 
             this.duplicateToolStripMenuItem.Name = "duplicateToolStripMenuItem";
             this.duplicateToolStripMenuItem.ShortcutKeyDisplayString = "";
             this.duplicateToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.duplicateToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.duplicateToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.duplicateToolStripMenuItem.Text = "Duplicate";
             this.duplicateToolStripMenuItem.Click += new System.EventHandler(this.ActionDuplicate);
             // 
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(199, 6);
+            this.toolStripSeparator11.Size = new System.Drawing.Size(197, 6);
             // 
             // renameToolStripMenuItem
             // 
             this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
             this.renameToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.renameToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.renameToolStripMenuItem.Text = "Rename";
             this.renameToolStripMenuItem.Click += new System.EventHandler(this.ActionRename);
             // 
@@ -941,20 +960,20 @@
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             this.deleteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.ActionDelete);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(199, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(197, 6);
             // 
             // LayerMoveUpEntry
             // 
             this.LayerMoveUpEntry.Name = "LayerMoveUpEntry";
             this.LayerMoveUpEntry.ShortcutKeys = System.Windows.Forms.Keys.F7;
-            this.LayerMoveUpEntry.Size = new System.Drawing.Size(202, 22);
+            this.LayerMoveUpEntry.Size = new System.Drawing.Size(200, 22);
             this.LayerMoveUpEntry.Text = "Move Up";
             this.LayerMoveUpEntry.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.LayerMoveUpEntry.Click += new System.EventHandler(this.ActionMoveUp);
@@ -963,14 +982,14 @@
             // 
             this.LayerMoveDownEntry.Name = "LayerMoveDownEntry";
             this.LayerMoveDownEntry.ShortcutKeys = System.Windows.Forms.Keys.F8;
-            this.LayerMoveDownEntry.Size = new System.Drawing.Size(202, 22);
+            this.LayerMoveDownEntry.Size = new System.Drawing.Size(200, 22);
             this.LayerMoveDownEntry.Text = "Move Down";
             this.LayerMoveDownEntry.Click += new System.EventHandler(this.ActionMoveDown);
             // 
             // toolStripSeparator18
             // 
             this.toolStripSeparator18.Name = "toolStripSeparator18";
-            this.toolStripSeparator18.Size = new System.Drawing.Size(199, 6);
+            this.toolStripSeparator18.Size = new System.Drawing.Size(197, 6);
             // 
             // toolStripMenuItem1
             // 
@@ -1164,7 +1183,7 @@
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
             this.listView1.ShowItemToolTips = true;
-            this.listView1.Size = new System.Drawing.Size(744, 133);
+            this.listView1.Size = new System.Drawing.Size(756, 133);
             this.listView1.TabIndex = 6;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseDoubleClick);
@@ -1183,7 +1202,7 @@
             // chooseFolder
             // 
             this.chooseFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chooseFolder.Location = new System.Drawing.Point(541, 6);
+            this.chooseFolder.Location = new System.Drawing.Point(553, 6);
             this.chooseFolder.Name = "chooseFolder";
             this.chooseFolder.Size = new System.Drawing.Size(60, 21);
             this.chooseFolder.TabIndex = 5;
@@ -1195,7 +1214,7 @@
             // 
             this.buttonFolderUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonFolderUp.Image = ((System.Drawing.Image)(resources.GetObject("buttonFolderUp.Image")));
-            this.buttonFolderUp.Location = new System.Drawing.Point(503, 6);
+            this.buttonFolderUp.Location = new System.Drawing.Point(515, 6);
             this.buttonFolderUp.Name = "buttonFolderUp";
             this.buttonFolderUp.Size = new System.Drawing.Size(32, 21);
             this.buttonFolderUp.TabIndex = 4;
@@ -1206,7 +1225,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(649, 10);
+            this.label2.Location = new System.Drawing.Point(661, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 12);
             this.label2.TabIndex = 3;
@@ -1217,7 +1236,7 @@
             this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(679, 7);
+            this.comboBox1.Location = new System.Drawing.Point(691, 7);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(74, 20);
             this.comboBox1.TabIndex = 2;
@@ -1230,7 +1249,7 @@
             this.textBox1.Location = new System.Drawing.Point(51, 7);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(446, 21);
+            this.textBox1.Size = new System.Drawing.Size(458, 21);
             this.textBox1.TabIndex = 1;
             // 
             // label1
@@ -1257,15 +1276,15 @@
             // 
             this.listView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView2.HideSelection = false;
-            listViewItem4.ToolTipText = "A simple rectangle defined by position, width and height. Rectangle Primitives ca" +
+            listViewItem1.ToolTipText = "A simple rectangle defined by position, width and height. Rectangle Primitives ca" +
                 "n be scaled but not rotated.";
-            listViewItem5.ToolTipText = "A simple circle defined by position and radius. Circle Primitives can be scaled b" +
+            listViewItem2.ToolTipText = "A simple circle defined by position and radius. Circle Primitives can be scaled b" +
                 "ut not rotated.";
-            listViewItem6.ToolTipText = "A Path is an array of Vector2. Path Primitives can be rotated and scaled.";
+            listViewItem3.ToolTipText = "A Path is an array of Vector2. Path Primitives can be rotated and scaled.";
             this.listView2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem4,
-            listViewItem5,
-            listViewItem6});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3});
             this.listView2.LargeImageList = this.imageList1;
             this.listView2.Location = new System.Drawing.Point(3, 3);
             this.listView2.MultiSelect = false;
@@ -1544,5 +1563,7 @@
         public System.Windows.Forms.ToolStripMenuItem ViewSnapToGrid;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator18;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator19;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
     }
 }

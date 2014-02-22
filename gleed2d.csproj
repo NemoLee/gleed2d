@@ -61,6 +61,7 @@
     <XnaCompressContent>true</XnaCompressContent>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.Xna.Framework, Version=3.1.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d" />
     <Reference Include="Microsoft.Xna.Framework.Game, Version=3.1.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d" />
     <Reference Include="mscorlib">
@@ -87,6 +88,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\Forms\CustomPropertyGroupEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\CustomPropertyGroupEditor.Designer.cs">
+      <DependentUpon>CustomPropertyGroupEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\Layer.ICustomTypeDescriptor.cs" />
     <Compile Include="src\Forms\LinkItemsForm.cs">
       <SubType>Form</SubType>
@@ -235,6 +242,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="src\Forms\CustomPropertyGroupEditor.resx">
+      <DependentUpon>CustomPropertyGroupEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

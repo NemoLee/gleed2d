@@ -166,7 +166,7 @@ namespace GLEED2D
         {
             if (customproperties == Editor.Instance.level.CustomProperties)
             {
-                cbxAddMode.Visible = cbxToAllSelected.Visible = false;
+                cbxToAllSelected.Visible = false;
             }
             else
             {
@@ -174,10 +174,14 @@ namespace GLEED2D
                 {
                     if (layer.CustomProperties == customproperties)
                     {
-                        cbxAddMode.Visible = cbxToAllSelected.Visible = false;
+                        cbxToAllSelected.Visible = false;
                         break;
                     }
                 }
+            }
+            foreach(CustomPropertyGroup group in Editor.Instance.CustomPropertyGroups.Values)
+            {
+                cbbGroup.Items.Add(group.name);
             }
             updateControls();
         }
@@ -207,7 +211,6 @@ namespace GLEED2D
 
         private void cbxAddToAllSelected_CheckedChanged(object sender, EventArgs e)
         {
-            cbxAddMode.Enabled = cbxToAllSelected.Checked;
         }
 
         private void cbbName_SelectedIndexChanged(object sender, EventArgs e)
@@ -238,7 +241,7 @@ namespace GLEED2D
                 {
                     if (customproperties.ContainsKey(cbbName.Text)==false)
                     {
-                        MessageBox.Show("A Custom Property with that name not exists.");
+                        MessageBox.Show("A Custom Property with that name doesn't exists.");
                         return;
                     }
                     customproperties.Remove(cbbName.Text);
@@ -252,6 +255,208 @@ namespace GLEED2D
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdbBoolean_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdbVector2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdbItem_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbFreetext_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbbBoolean_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbX_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbY_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numUDB_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numUDG_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbxAddMode_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbxDeleteWithoutConfirm_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddCake_Click(object sender, EventArgs e)
+        {
+            if (Editor.Instance.CustomPropertyGroups.ContainsKey(cbbGroup.Text))
+            {
+                CustomPropertyGroup group = Editor.Instance.CustomPropertyGroups[cbbGroup.Text];
+                foreach(CustomProperty prop in group.customproperties.Values)
+                {
+                    CustomProperty cp = new CustomProperty();
+                    cp.name = (String)prop.name.Clone();
+                    cp.description = (String)prop.description.Clone();
+                    cp.type = prop.type;
+                    if (prop.type == typeof(Vector2))
+                    {
+                        Regex r = new Regex(@"^\d+(\.)?\d*$");
+                        float x = ((Vector2)(prop.value)).X;
+                        float y = ((Vector2)(prop.value)).Y;
+                        cp.value = new Vector2(x, y);
+                    }
+                    else if (prop.type == typeof(Color))
+                    {
+                        byte R = ((Color)(prop.value)).R;
+                        byte G = ((Color)(prop.value)).G;
+                        byte B = ((Color)(prop.value)).B;
+                        cp.value = new Color(R, G, B);
+                    }
+                    else 
+                    {
+                        cp.value = prop.value;
+                    }
+                    if (cbxToAllSelected.Checked)//add to all selected items
+                    {
+                        foreach (Item item in Editor.Instance.SelectedItems)
+                        {
+                            if (cbxAddMode.Checked)
+                            {
+                                item.CustomProperties[cp.name] = cp.clone();
+                            }
+                            else
+                            {
+                                if (item.CustomProperties.ContainsKey(cp.name) == false)
+                                {
+                                    item.CustomProperties[cp.name] = cp.clone();
+                                }
+                            }
+                        }
+                    }
+                    else//add to selected
+                    {
+                        if (customproperties.ContainsKey(cp.name) && cbxAddMode.Checked == false)
+                        {
+                            continue;
+                        }
+                        customproperties[cp.name] = cp.clone();
+                    }
+                }
+                updateControls();
+                MainForm.Instance.propertyGrid1.Refresh();
+            }
+            else
+            {
+                MessageBox.Show("A Custom Property Group with name \"" + cbbGroup.Text + "\" doesn't exists.");
+            }
+            
+        }
+
+        private void btnPopCake_Click(object sender, EventArgs e)
+        {
+            if (Editor.Instance.CustomPropertyGroups.ContainsKey(cbbGroup.Text))
+            {
+                bool isSureToDelete = true;
+                if (cbxDeleteWithoutConfirm.Checked == false
+                    && MessageBox.Show("Are you sure to delete property \"" + cbbName.Text + "\" from selected items(s)", "Confirm deletion", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
+                {
+                    isSureToDelete = false;
+                }
+                if (isSureToDelete)
+                {
+                    CustomPropertyGroup group = Editor.Instance.CustomPropertyGroups[cbbGroup.Text];
+                    foreach (CustomProperty prop in group.customproperties.Values)
+                    {
+                        if (cbxToAllSelected.Checked)//to all selected items
+                        {
+                            foreach (Item item in Editor.Instance.SelectedItems)
+                            {
+                                item.CustomProperties.Remove(prop.name);
+                            }
+                        }
+                        else//to selected
+                        {
+                            customproperties.Remove(prop.name);
+                        }
+                    }
+                    updateControls();
+                    MainForm.Instance.propertyGrid1.Refresh();
+                }
+            }
+            else
+            {
+                MessageBox.Show("A Custom Property Group with name \"" + cbbGroup.Text + "\" doesn't exists.");
+            }
         }
 
 

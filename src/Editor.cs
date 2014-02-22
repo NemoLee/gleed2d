@@ -28,7 +28,26 @@ namespace GLEED2D
     {
         Rectangle, Circle, Path
     }
-
+    class CustomPropertyGroup
+    {
+        public CustomPropertyGroup(String n,String p)
+        {
+            name = filepath = null;
+            if (n != null)
+            {
+                name = (String)n.Clone();
+            }
+            ;
+            if (p != null)
+            { 
+                filepath = (String)p.Clone() ;
+            }
+            customproperties = new SerializableDictionary();
+        }
+        public String name;
+        public String filepath;
+        public SerializableDictionary customproperties;
+    }
     class Editor
     {
         public static Editor Instance;
@@ -50,6 +69,7 @@ namespace GLEED2D
         Item lastitem;
         public List<Item> SelectedItems;
         public List<Item> [] ItemGroups;
+        public Dictionary<String,CustomPropertyGroup> CustomPropertyGroups;
         Rectangle selectionrectangle = new Rectangle();
         Vector2 mouseworldpos, grabbedpoint, initialcampos, newPosition;       
         List<Vector2> initialpos;                   //position before user interaction
@@ -78,6 +98,7 @@ namespace GLEED2D
 
             SelectedItems = new List<Item>();
             ItemGroups = new List<Item>[10];
+            CustomPropertyGroups = new Dictionary<String, CustomPropertyGroup>();
             for (int i = 0; i < 10; i++)
             {
                 ItemGroups[i] = new List<Item>();
@@ -512,7 +533,16 @@ namespace GLEED2D
             }
             return null;*/
         }
-
+        static public void fixNullItems(SerializableDictionary props)
+        {
+            foreach (CustomProperty prop in props.Values)
+            {
+                if (prop.type == typeof(Item) && prop.value.GetType()== typeof(string))
+                {
+                    prop.value = null;
+                }
+            }
+        }
         public void loadLevel(Level l)
         {
             if (l.ContentRootFolder == null)
@@ -573,6 +603,16 @@ namespace GLEED2D
             MainForm.Instance.undoButton.Enabled = MainForm.Instance.undoMenuItem.Enabled = undoBuffer.Count > 0;
             MainForm.Instance.redoButton.Enabled = MainForm.Instance.redoMenuItem.Enabled = redoBuffer.Count > 0;
             commandInProgress = false;
+
+            fixNullItems(l.CustomProperties);
+            foreach(Layer la in l.Layers)
+            {
+                fixNullItems(la.CustomProperties);
+                foreach(Item item in la.Items)
+                {
+                    fixNullItems(item.CustomProperties);
+                }
+            }
 
             updatetreeview();
         }

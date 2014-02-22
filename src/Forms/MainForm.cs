@@ -1013,5 +1013,11 @@ namespace GLEED2D
                 }
             }
         }
+
+        private void OpenCustomPropertyGroupEditor(object sender, EventArgs e)
+        {
+            CustomPropertyGroupEditor editor = new CustomPropertyGroupEditor();
+            editor.ShowDialog();
+        }
     }
 }
